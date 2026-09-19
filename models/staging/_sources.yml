@@ -4,10 +4,25 @@ sources:
   - name: tpch_sample
     database: SNOWFLAKE_SAMPLE_DATA
     schema: TPCH_SF1
+    description: "Raw TPC-H sample dataset provided natively inside Snowflake."
     tables:
       - name: orders
-        description: "Raw customer orders"
+        description: "Raw order master records."
+        config:
+          loaded_at_field: "o_orderdate::timestamp"
+          freshness:
+            warn_after: {count: 15000, period: day}
+            error_after: {count: 25000, period: day}
+
       - name: lineitem
-        description: "Line items per order"
+        description: "Raw line item details."
+        config:
+          loaded_at_field: "l_shipdate::timestamp"
+          freshness:
+            warn_after: {count: 15000, period: day}
+            error_after: {count: 25000, period: day}
+
       - name: customer
-        description: "Customer master records"
+        description: "Raw customer master data."
+        config:
+          freshness: ~
