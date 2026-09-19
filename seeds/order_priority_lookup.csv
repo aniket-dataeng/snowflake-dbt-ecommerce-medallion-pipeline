@@ -1,0 +1,6 @@
+order_priority,priority_description,is_high_priority
+1-URGENT,Urgent Delivery Required,true
+2-HIGH,High Priority Processing,true
+3-MEDIUM,Standard Processing,false
+4-NOT SPECIFIED,Unspecified Priority,false
+5-LOW,Low Priority Processing,false

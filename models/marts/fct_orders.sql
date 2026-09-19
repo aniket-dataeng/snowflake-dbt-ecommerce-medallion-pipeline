@@ -1,3 +1,5 @@
+{{ config(materialized = 'incremental', unique_key = 'order_id') }}
+
 with src as (
     select o.order_id, o.customer_id,
             o.order_date, o.order_status, o.order_priority, o.clerk_name, o.ship_priority,
