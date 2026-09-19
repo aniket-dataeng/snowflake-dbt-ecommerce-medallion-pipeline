@@ -26,3 +26,11 @@ sources:
         description: "Raw customer master data."
         config:
           freshness: ~
+
+  - name: gold_layer
+    database: analytics_prod
+    schema: gold_gold
+    description: "Gold layer"
+    tables:
+      - name: pipeline_audit_log
+        description: "Stores the audit information on fact loads."
