@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: tpch_sample
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCH_SF1
+    tables:
+      - name: orders
+        description: "Raw customer orders"
+      - name: lineitem
+        description: "Line items per order"
+      - name: customer
+        description: "Customer master records"

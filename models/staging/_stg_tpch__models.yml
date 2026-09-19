@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_tpch__orders
+    description: "Staged order records from raw TPCH sample data."
+    columns:
+      - name: order_id
+        description: "Primary key for orders."
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_tpch__customer
+    description: "Staged customer master records."
+    columns:
+      - name: customer_id
+        description: "Primary key for customers."
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_tpch__lineitem
+    description: "Staged line item detail records."
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+      - name: line_number
+        tests:
+          - not_null
